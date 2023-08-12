@@ -82,11 +82,14 @@ with col3:
 
 
 colb1, colb2 = st.columns(2)
-with colb1:
-    if st.button("Predict Stock's Highest Price"):
-        label_h = "Predicted Highest Price : ₹ " + str(predict_high(company))
-        st.write(label_h)
-with colb2:
-    if st.button("Predict Stock's Lowest Price"):
-        label_l = "Predicted Lowest Price : ₹ " + str(predict_low(company))
-        st.write(label_l)
+try:
+    with colb1:
+        if st.button("Predict Stock's Highest Price"):
+            label_h = "Predicted Highest Price : ₹ " + str(predict_high(company))
+            st.write(label_h)
+    with colb2:
+        if st.button("Predict Stock's Lowest Price"):
+            label_l = "Predicted Lowest Price : ₹ " + str(predict_low(company))
+            st.write(label_l)
+except:
+    st.error("Select From All Options") 
